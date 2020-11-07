@@ -1,4 +1,3 @@
-
 [![Build Status](https://travis-ci.com/TralahM/pytekdatamuse.svg?branch=master)](https://travis-ci.com/TralahM/pytekdatamuse)
 [![Build status](https://ci.appveyor.com/api/projects/status/yvvmq5hyf7hj743a/branch/master?svg=true)](https://ci.appveyor.com/project/TralahM/pytekdatamuse/branch/master)
 [![Documentation Status](https://readthedocs.org/projects/pytekdatamuse/badge/?version=latest)](https://pytekdatamuse.readthedocs.io/en/latest/?badge=latest)
@@ -23,9 +22,97 @@
 
 [![Documentation](https://img.shields.io/badge/Docs-pytekdatamuse-blue.svg?style=for-the-badge)](https://github.com/TralahM/pytekdatamuse)
 
-# How to Install
+Look at the [Datamuse API Docs](http://www.datamuse.com/api/) for a detailed
+description.
+
+## How to Install
 ```bash
 # In terminal do:
+$ pip install pytekdatamuse
+```
+## Usage
+You can use the cli script
+
+```console
+$ tekdatamuse define hypotheses
+hypotheses
+N 	 a tentative theory about the natural world; a concept that is not yet verified but that if true would explain certain facts or phenomena
+N 	 a proposal intended to explain certain facts or observations
+N 	 a message expressing an opinion based on incomplete evidence
+```
+
+### From python scripts
+
+```python
+
+import tekdatamuse
+api=tekdatamuse.Datamuse()
+# words
+words=api.words(sp="early",md="d")
+
+# get synonyms
+syns=api.synonyms("look")
+
+# get antonyms
+antonyms=api.antonyms("look")
+
+# get holonyms
+holonyms=api.holonyms("look")
+
+# get hypernyms
+hypernyms=api.hypernyms("look")
+
+# get hyponyms
+hyponyms=api.hyponyms("look")
+
+# get meronyms
+meronyms=api.meronyms("look")
+
+# get homophones
+homophones=api.homophones("look")
+
+# get rhymes
+rhymes=api.rhymes("look")
+
+# get approximate rhymes
+approx_rhymes=api.approx_rhymes("look")
+
+# get popular adjectives modifying a noun
+noun_modifiers=api.noun_modifiers("look")
+
+# get popular nouns modified by the  adjective
+adj_modifiers=api.adj_modifiers("look")
+
+# get word definition
+define=api.define("hypotheses")
+
+# autocomplete
+completions=api.autocomplete("boo",max=20)
+
+# followers
+followers=api.followers("early")
+
+# predecessors
+predecessors=api.predecessors("early")
+
+# right_context
+right_context=api.right_context("early")
+
+# left_context
+left_context=api.left_context("early")
+
+# triggers
+triggers=api.triggers("early")
+
+# means_like
+means_like=api.means_like("early")
+
+# sounds_like
+sounds_like=api.sounds_like("early")
+
+# spelled_like
+spelled_like=api.spelled_like("early")
+
 ```
 
 ## Building from Source for Developers
