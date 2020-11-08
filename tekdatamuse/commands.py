@@ -68,6 +68,7 @@ def build_subparsers(subparsers, subcommands):
         )
         p.add_argument(
             "word",
+            metavar="WORD",
         )
         p.set_defaults(func=fun[0])
     return
