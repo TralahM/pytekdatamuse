@@ -20,13 +20,16 @@
 
 # Documentation
 
+The cli script provides 22 subcommands to avail the various functionalities
+offered by the API.
+
 [![Documentation](https://img.shields.io/badge/Docs-pytekdatamuse-blue.svg?style=for-the-badge)](https://github.com/TralahM/pytekdatamuse)
 
 Look at the [Datamuse API Docs](http://www.datamuse.com/api/) for a detailed
 description.
 
 ## How to Install
-```bash
+```console
 # In terminal do:
 $ pip install pytekdatamuse
 ```
@@ -34,6 +37,8 @@ $ pip install pytekdatamuse
 You can use the cli script
 
 ```console
+$ tekdatamuse --help
+$ tekdatamuse [subcommand] --help
 $ tekdatamuse define hypotheses
 hypotheses
 N 	 a tentative theory about the natural world; a concept that is not yet verified but that if true would explain certain facts or phenomena
@@ -139,7 +144,7 @@ $ cd pytekdatamuse
 # Self-Promotion
 
 [![](https://img.shields.io/badge/Github-TralahM-green?style=for-the-badge&logo=github)](https://github.com/TralahM)
-[![](https://img.shields.io/badge/Twitter-%40tralahtek-red?style=for-the-badge&logo=twitter)](https://twitter.com/TralahM)
+[![](https://img.shields.io/badge/Twitter-%40tralahtek-cyan?style=for-the-badge&logo=twitter)](https://twitter.com/TralahM)
 [![TralahM](https://img.shields.io/badge/Kaggle-TralahM-purple.svg?style=for-the-badge&logo=kaggle)](https://kaggle.com/TralahM)
 [![TralahM](https://img.shields.io/badge/LinkedIn-TralahM-red.svg?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/TralahM)
 
