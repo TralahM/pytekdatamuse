@@ -57,14 +57,17 @@ def define(args):
 
 
 def build_subparsers(subparsers, subcommands):
+    """Build subparsers."""
     for subc, fun in subcommands.items():
-        p = subparsers.add_parser(subc)
-        p.add_argument(
-            "word",
+        p = subparsers.add_parser(
+            subc,
             aliases=[
                 fun[1],
             ],
             help=fun[2],
+        )
+        p.add_argument(
+            "word",
         )
         p.set_defaults(func=fun[0])
     return
