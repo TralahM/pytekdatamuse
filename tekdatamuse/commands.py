@@ -4,6 +4,94 @@ import tekdatamuse
 import argparse
 
 
+def homophones(args):
+    """Get homophoness subcommand."""
+    defs = tekdatamuse.Datamuse().homophones(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def holonyms(args):
+    """Get holonymss subcommand."""
+    defs = tekdatamuse.Datamuse().holonyms(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def hypernyms(args):
+    """Get hypernymss subcommand."""
+    defs = tekdatamuse.Datamuse().hypernyms(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def hyponyms(args):
+    """Get hyponymss subcommand."""
+    defs = tekdatamuse.Datamuse().hyponyms(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def meronyms(args):
+    """Get meronymss subcommand."""
+    defs = tekdatamuse.Datamuse().meronyms(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def followers(args):
+    """Get followerss subcommand."""
+    defs = tekdatamuse.Datamuse().followers(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def predecessors(args):
+    """Get predecessorss subcommand."""
+    defs = tekdatamuse.Datamuse().predecessors(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def left_context(args):
+    """Get left_contexts subcommand."""
+    defs = tekdatamuse.Datamuse().left_context(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def right_context(args):
+    """Get right_contexts subcommand."""
+    defs = tekdatamuse.Datamuse().right_context(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def consonant_match(args):
+    """Get consonant_matchs subcommand."""
+    defs = tekdatamuse.Datamuse().consonant_match(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def autocomplete(args):
+    """Get autocompletes subcommand."""
+    defs = tekdatamuse.Datamuse().autocomplete(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
 def antonyms(args):
     """Get antonymns subcommand."""
     defs = tekdatamuse.Datamuse().antonyms(args.word)
@@ -104,11 +192,11 @@ def build_subparsers(subparsers, subcommands):
             aliases=[
                 fun[1],
             ],
-            help=fun[2],
         )
         p.add_argument(
             "word",
             metavar="WORD",
+            help=fun[2],
         )
         p.set_defaults(func=fun[0])
     return
@@ -129,15 +217,6 @@ def main():
     )
     parser.set_defaults(func=usage)
     subparsers = parser.add_subparsers()
-    def_subparser = subparsers.add_parser(
-        "define",
-        help="Get definition of word",
-        aliases=[
-            "def",
-        ],
-    )
-    def_subparser.add_argument("word")
-    def_subparser.set_defaults(func=define)
     subcommands = {
         "sounds_like": [
             sounds_like,
@@ -148,6 +227,61 @@ def main():
             means_like,
             "ml",
             "get words meaning like phrase",
+        ],
+        "autocomplete": [
+            autocomplete,
+            "ac",
+            "get words autocomplete of word",
+        ],
+        "consonant_match": [
+            consonant_match,
+            "cm",
+            "get words consonant_match of word",
+        ],
+        "right_context": [
+            right_context,
+            "rc",
+            "get words right_context of word",
+        ],
+        "left_context": [
+            left_context,
+            "lc",
+            "get words left_context of word",
+        ],
+        "predecessors": [
+            predecessors,
+            "pre",
+            "get words predecessors of word",
+        ],
+        "followers": [
+            followers,
+            "fol",
+            "get words followers of word",
+        ],
+        "meronyms": [
+            meronyms,
+            "mer",
+            "get words meronyms of word",
+        ],
+        "hyponyms": [
+            hyponyms,
+            "hypo",
+            "get words hyponyms of word",
+        ],
+        "hypernyms": [
+            hypernyms,
+            "hyper",
+            "get words hypernyms of word",
+        ],
+        "holonyms": [
+            holonyms,
+            "hol",
+            "get words holonyms of word",
+        ],
+        "homophones": [
+            homophones,
+            "hom",
+            "get words homophones of word",
         ],
         "antonyms": [
             antonyms,
@@ -188,6 +322,11 @@ def main():
             triggers,
             "tg",
             "get trigger words statistically occuring with the word.",
+        ],
+        "define": [
+            define,
+            "def",
+            "get definition of word.",
         ],
     }
     build_subparsers(subparsers, subcommands)
