@@ -44,6 +44,46 @@ def spelled_like(args):
     return
 
 
+def rhymes(args):
+    """Get rhymes subcommand."""
+    defs = tekdatamuse.Datamuse().rhymes(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def approx_rhymes(args):
+    """Get approx_rhymes subcommand."""
+    defs = tekdatamuse.Datamuse().approx_rhymes(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def noun_modifiers(args):
+    """Get noun_modifiers subcommand."""
+    defs = tekdatamuse.Datamuse().noun_modifiers(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def adj_modifiers(args):
+    """Get adj_modifiers subcommand."""
+    defs = tekdatamuse.Datamuse().adj_modifiers(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
+def triggers(args):
+    """Get triggers subcommand."""
+    defs = tekdatamuse.Datamuse().triggers(args.word)
+    for d in defs:
+        print(d.get("word"))
+    return
+
+
 def define(args):
     """Define subcommand."""
     defs = tekdatamuse.Datamuse().define(args.word)
@@ -99,11 +139,56 @@ def main():
     def_subparser.add_argument("word")
     def_subparser.set_defaults(func=define)
     subcommands = {
-        "sounds_like": [sounds_like, "sl", "get words sounding like word"],
-        "means_like": [means_like, "ml", "get words meaning like phrase"],
-        "antonyms": [antonyms, "ant", "get words antonyms of word"],
-        "synonyms": [synonyms, "syn", "get words synonyms of word"],
-        "spelled_like": [spelled_like, "sp", "get words spelled like pattern"],
+        "sounds_like": [
+            sounds_like,
+            "sl",
+            "get words sounding like word",
+        ],
+        "means_like": [
+            means_like,
+            "ml",
+            "get words meaning like phrase",
+        ],
+        "antonyms": [
+            antonyms,
+            "ant",
+            "get words antonyms of word",
+        ],
+        "synonyms": [
+            synonyms,
+            "syn",
+            "get words synonyms of word",
+        ],
+        "spelled_like": [
+            spelled_like,
+            "sp",
+            "get words spelled like pattern",
+        ],
+        "rhymes": [
+            rhymes,
+            "rh",
+            "get words rhymes for word.",
+        ],
+        "approx_rhymes": [
+            approx_rhymes,
+            "arh",
+            "get words approximate rhymes for word.",
+        ],
+        "noun_modifiers": [
+            noun_modifiers,
+            "nm",
+            "get popular adjectives modifying the  noun.",
+        ],
+        "adj_modifiers": [
+            adj_modifiers,
+            "am",
+            "get popular nouns modified by the adjective.",
+        ],
+        "triggers": [
+            triggers,
+            "tg",
+            "get trigger words statistically occuring with the word.",
+        ],
     }
     build_subparsers(subparsers, subcommands)
     args = parser.parse_args()
